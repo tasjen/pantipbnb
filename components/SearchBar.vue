@@ -20,7 +20,7 @@ const handleSubmit = (event: Event) => {
     "
     @submit="handleSubmit"
   >
-    <p class="absolute -top-12 left-[40%] font-medium text-lg">
+    <p class="absolute -top-12 left-[40%] font-medium text-lg hidden md:block">
       Learn, Share & Fun
     </p>
     <Search class="absolute w-12 pl-4 md:hidden" />
