@@ -79,10 +79,10 @@ module.exports = {
         },
         "move-up-scale-down": {
           "0%": { transform: "translateY(0) scale(1)" },
-          "100%": { transform: "translateY(-72px) scale(0.75)" },
+          "100%": { transform: "translateY(-66px) scale(0.75)" },
         },
         "move-down-scale-up": {
-          "0%": { transform: "translateY(-72px) scale(0.75)" },
+          "0%": { transform: "translateY(-66px) scale(0.75)" },
           "100%": { transform: "translateY(0) scale(1)" },
         },
         "text-loop": {
@@ -96,8 +96,8 @@ module.exports = {
         "collapsible-down": "collapsible-down 0.2s ease-in-out",
         "collapsible-up": "collapsible-up 0.2s ease-in-out",
         "fade-in": "fade-in 0.5s ease-in-out",
-        "move-up-scale-down": "move-up-scale-down 0.2s ease-in-out forwards",
-        "move-down-scale-up": "move-down-scale-up 0.2s ease-in-out forwards",
+        "move-up-scale-down": "move-up-scale-down 0.1s ease-in-out forwards",
+        "move-down-scale-up": "move-down-scale-up 0.1s ease-in-out forwards",
         "text-loop": "text-loop 7.5s linear infinite",
       },
     },

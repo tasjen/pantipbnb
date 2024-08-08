@@ -2,9 +2,9 @@
 
 <template>
   <footer
-    class="space-y-4 border-t bg-primary-foreground px-4 md:px-8 lg:px-12"
+    class="space-y-4 border-t bg-primary-foreground px-6 md:px-8 xl:px-20"
   >
-    <div class="border-b">
+    <div class="border-b py-4">
       <p class="text-center text-xl font-bold">เว็บในเครือ</p>
       <div class="mx-auto grid max-w-[2400px] grid-cols-2">
         <a href="https://www.bloggang.com/" target="_blank" class="m-auto">
@@ -137,7 +137,7 @@
       </div>
     </div>
     <div>
-      <p class="mx-auto max-w-[2400px] text-start">
+      <p class="mx-auto max-w-[2400px] text-start py-4">
         © 2024 Internet Marketing co., ltd
       </p>
     </div>

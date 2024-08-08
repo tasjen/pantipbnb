@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ChevronLeft, ChevronRight } from "lucide-vue-next";
 
-const { rooms } = useStore();
+const store = useStore();
 const containerRef = ref<HTMLUListElement>();
 
 const isLeft = ref(true);
@@ -58,7 +58,7 @@ const handleScrollRight = () => {
       class="no-scroll flex gap-12 overflow-x-auto px-4 md:mx-8"
     >
       <li
-        v-for="room in rooms"
+        v-for="room in store.rooms"
         :key="room.id"
         class="box-border shrink-0 grow-0 border-background opacity-70 transition-colors hover:border-border hover:opacity-90 md:border-b-4 pb-2"
       >

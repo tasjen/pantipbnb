@@ -1,37 +1,28 @@
 <script setup lang="ts">
 import { Search } from "lucide-vue-next";
-import { useDebounce } from "@vueuse/core";
-const isAtTop = ref(true);
-const debouncedIsAtTop = useDebounce(isAtTop, 200);
 
-const handleScroll = () => {
-  isAtTop.value = window.scrollY === 0;
-};
+const store = useStore();
 
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
-
+const searchTerms = ref("");
 const handleSubmit = (event: Event) => {
   event.preventDefault();
   window.open(`https://pantip.com/search?q=${searchTerms.value}`, "_blank");
 };
-const searchTerms = ref("");
 </script>
 
 <template>
   <form
     class="mx-auto flex items-center gap-2 px-6 pb-4 lg:max-w-[900px] transition-all"
     :class="
-      debouncedIsAtTop
+      store.isAtTop
         ? 'md:animate-move-down-scale-up'
         : 'md:animate-move-up-scale-down md:-mb-16 md:max-w-[600px] lg:max-w-[750px]'
     "
     @submit="handleSubmit"
   >
+    <p class="absolute -top-12 left-[40%] font-medium text-lg">
+      Learn, Share & Fun
+    </p>
     <Search class="absolute w-12 pl-4 md:hidden" />
     <Input
       v-model="searchTerms"

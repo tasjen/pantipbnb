@@ -1,13 +1,16 @@
 import { getPantipData } from "~/lib/data";
 import type { DataState } from "~/lib/schema";
 
-type State = DataState;
+type State = DataState & {
+  isAtTop: boolean;
+};
 
 export const useStore = defineStore("global", {
   state: (): State => ({
     rooms: [],
     highlights: [],
     topPosts: [],
+    isAtTop: true,
   }),
   actions: {
     async fetchHomePageData() {

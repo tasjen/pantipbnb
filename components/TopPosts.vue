@@ -5,10 +5,10 @@ type Props = {
   type: TopPost["type"];
 };
 const { type } = defineProps<Props>();
-const { topPosts } = useStore();
+const store = useStore();
 
 const filteredTopPosts = computed(() =>
-  topPosts.filter((e) => e.type === type),
+  store.topPosts.filter((e) => e.type === type),
 );
 
 const formatPostDate = (postDate: string): string => {
@@ -31,33 +31,34 @@ const formatPostDate = (postDate: string): string => {
       Pantip {{ type[0]?.toUpperCase() + type.slice(1) }}
     </h1>
     <ul
-      class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6"
+      class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 min-[1920px]:grid-cols-6"
     >
-      <li v-for="post in filteredTopPosts" :key="post.topic_id" class="p-2">
+      <li v-for="post in filteredTopPosts" :key="post.topic_id" class="text-sm">
         <a :href="`https://pantip.com/topic/${post.topic_id}`" target="_blank">
-          <img
-            v-if="post.thumbnail_url"
-            :src="post.thumbnail_url ?? ''"
-            :alt="post.title"
-            class="mx-auto w-auto rounded-xl aspect-square object-contain"
-          />
+          <div v-if="post.thumbnail_url" class="flex aspect-square">
+            <img
+              :src="post.thumbnail_url ?? ''"
+              :alt="post.title"
+              class="mx-auto rounded-xl max-w-full max-h-full m-auto"
+            />
+          </div>
           <div
             v-else
-            class="flex items-center overflow-hidden text-ellipsis rounded-xl bg-border p-8 aspect-square object-contain"
+            class="flex aspect-square overflow-hidden text-ellipsis rounded-xl bg-border p-8"
           >
-            <p class="mx-auto text-wrap text-center font-bold">
+            <p class="m-auto text-wrap text-center font-bold text-base">
               {{ post.title }}
             </p>
           </div>
           <div class="flex justify-between items-end">
-            <div class="overflow-hidden mt-2 max-w-[80%]">
+            <div class="overflow-hidden mt-2 pr-2">
               <p
                 class="truncate font-bold hover:inline-block hover:animate-text-loop align-bottom"
               >
                 {{ post.title }}
               </p>
             </div>
-            <div>
+            <div class="shrink-0">
               <MessageSquareText class="mr-1 inline size-4" />
               <span>{{ post.comments_count }}</span>
             </div>
@@ -70,8 +71,8 @@ const formatPostDate = (postDate: string): string => {
               {{ post.author.name }}
             </p>
             <div>
-              <SquarePlus class="mr-1 inline size-4" />
-              <span class="pt-1">{{ post.votes_count }}</span>
+              <SquarePlus class="mr-1 mb-1 inline size-4" />
+              <span>{{ post.votes_count }}</span>
             </div>
           </div>
           <p class="text-muted-foreground">
