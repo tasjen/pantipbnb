@@ -8,35 +8,34 @@ const isLeft = ref(true);
 const isRight = ref(false);
 
 const handleScrollLeft = () => {
-  containerRef?.value?.scrollBy({
-    left: -((containerRef?.value?.clientWidth ?? 0) / 1.5),
+  containerRef.value?.scrollBy({
+    left: -((containerRef.value.clientWidth ?? 0) / 1.5),
     behavior: 'smooth',
   });
-  setTimeout(() => (isLeft.value = containerRef?.value?.scrollLeft === 0), 500);
+  setTimeout(() => (isLeft.value = containerRef.value?.scrollLeft === 0), 500);
   setTimeout(
     () =>
       (isRight.value =
-        (containerRef?.value?.scrollWidth ?? 0) -
-          (containerRef?.value?.scrollLeft ?? 0) ===
-        containerRef?.value?.clientWidth),
+        (containerRef.value?.scrollWidth ?? 0) -
+          (containerRef.value?.scrollLeft ?? 0) ===
+        containerRef.value?.clientWidth),
     500,
   );
 };
 
 const handleScrollRight = () => {
-  if (!containerRef.value) return;
-  containerRef?.value?.scrollBy({
-    left: (containerRef?.value?.clientWidth ?? 0) / 1.5,
+  containerRef.value?.scrollBy({
+    left: (containerRef.value.clientWidth ?? 0) / 1.5,
     behavior: "smooth",
   });
-  setTimeout(() => (isLeft.value = containerRef?.value?.scrollLeft === 0), 500);
+  setTimeout(() => (isLeft.value = containerRef.value?.scrollLeft === 0), 500);
   setTimeout(
     () =>
       (isRight.value =
         Math.abs(
-          (containerRef?.value?.clientWidth ?? 0) -
-            ((containerRef?.value?.scrollWidth ?? 0) -
-              (containerRef?.value?.scrollLeft ?? 0)),
+          (containerRef.value?.clientWidth ?? 0) -
+            ((containerRef.value?.scrollWidth ?? 0) -
+              (containerRef.value?.scrollLeft ?? 0)),
         ) <= 8),
     500,
   );

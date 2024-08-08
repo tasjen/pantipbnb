@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import "~/assets/css/global.css";
+useHead({
+  title: 'Pantipbnb',
+  meta: [
+    { name: 'description', content: "A clone of Airbnb homepage with Pantip's content." }
+  ],
+})
 </script>
 
 <template>
