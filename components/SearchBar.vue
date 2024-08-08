@@ -1,0 +1,49 @@
+<script setup lang="ts">
+import { Search } from "lucide-vue-next";
+import { useDebounce } from "@vueuse/core";
+const isAtTop = ref(true);
+const debouncedIsAtTop = useDebounce(isAtTop, 200);
+
+const handleScroll = () => {
+  isAtTop.value = window.scrollY === 0;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+const handleSubmit = (event: Event) => {
+  event.preventDefault();
+  window.open(`https://pantip.com/search?q=${searchTerms.value}`, "_blank");
+};
+const searchTerms = ref("");
+</script>
+
+<template>
+  <form
+    class="mx-auto flex items-center gap-2 px-6 pb-4 lg:max-w-[900px] transition-all"
+    :class="
+      debouncedIsAtTop
+        ? 'md:animate-move-down-scale-up'
+        : 'md:animate-move-up-scale-down md:-mb-16 md:max-w-[600px] lg:max-w-[750px]'
+    "
+    @submit="handleSubmit"
+  >
+    <Search class="absolute w-12 pl-4 md:hidden" />
+    <Input
+      v-model="searchTerms"
+      class="h-14 rounded-full pl-14 shadow-md md:pl-8 md:text-xl"
+      type="search"
+      placeholder="ค้นหาบน Pantip"
+    />
+    <button
+      type="submit"
+      class="relative right-16 hidden h-11 w-12 items-center justify-center rounded-full bg-[#ff385c] md:flex"
+    >
+      <Search class="m-auto size-5 invert" />
+    </button>
+  </form>
+</template>
