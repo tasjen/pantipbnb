@@ -39,13 +39,13 @@ const formatPostDate = (postDate: string): string => {
             v-if="post.thumbnail_url"
             :src="post.thumbnail_url ?? ''"
             :alt="post.title"
-            class="mx-auto h-72 w-auto rounded-xl object-contain"
+            class="mx-auto w-auto rounded-xl aspect-square object-contain"
           />
           <div
             v-else
-            class="flex h-72 items-center overflow-hidden text-ellipsis rounded-xl bg-border p-8"
+            class="flex items-center overflow-hidden text-ellipsis rounded-xl bg-border p-8 aspect-square object-contain"
           >
-            <p class="mx-auto text-wrap text-center text-lg font-bold">
+            <p class="mx-auto text-wrap text-center font-bold">
               {{ post.title }}
             </p>
           </div>
