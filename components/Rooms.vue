@@ -56,12 +56,12 @@ const handleScrollRight = () => {
     </button>
     <ul
       ref="containerRef"
-      class="no-scroll flex gap-12 overflow-x-auto px-4 pb-0 md:mx-8"
+      class="no-scroll flex gap-12 overflow-x-auto px-4 md:mx-8"
     >
       <li
         v-for="room in rooms"
         :key="room.id"
-        class="box-border min-w-0 shrink-0 grow-0 border-background opacity-70 transition-colors hover:border-border hover:opacity-90 md:border-b-4 md:pb-2"
+        class="box-border shrink-0 grow-0 border-background opacity-70 transition-colors hover:border-border hover:opacity-90 md:border-b-4 pb-2"
       >
         <a :href="room.link_url" target="_blank">
           <img
