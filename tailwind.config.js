@@ -56,6 +56,9 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        "white-all": "0 0 20px 20px rgba(255, 255, 255, 0.98)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
@@ -98,7 +101,7 @@ module.exports = {
         "fade-in": "fade-in 0.5s ease-in-out",
         "move-up-scale-down": "move-up-scale-down 0.1s ease-in-out forwards",
         "move-down-scale-up": "move-down-scale-up 0.1s ease-in-out forwards",
-        "text-loop": "text-loop 7.5s linear infinite",
+        "text-loop": "text-loop 7.5s linear",
       },
     },
   },

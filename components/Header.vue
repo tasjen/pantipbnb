@@ -7,8 +7,8 @@ const store = useStore();
     class="sticky top-0 bg-background pt-4"
     :class="!store.isAtTop && 'shadow-md'"
   >
-    <div class="mx-auto max-w-[2400px]">
-      <div class="mx-20 hidden md:flex justify-between">
+    <div class="mx-auto max-w-[2400px] px-6 md:px-8 xl:px-20">
+      <div class="hidden md:flex justify-between">
         <img src="/pantip-logo.png" alt="pantip-logo" width="80" />
         <Menu />
       </div>
@@ -17,7 +17,7 @@ const store = useStore();
     <div class="md:border-b">
       <SearchBar />
     </div>
-    <div class="mx-auto max-w-[2400px]">
+    <div class="mx-auto max-w-[2400px] md:px-8 xl:px-20">
       <Rooms />
     </div>
   </div>

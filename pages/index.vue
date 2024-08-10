@@ -6,7 +6,7 @@ await callOnce(store.fetchHomePageData);
 onMounted(() => {
   const setIsAtTop = useDebounceFn(() => {
     store.isAtTop = window.scrollY === 0;
-  }, 100)
+  }, 100, { maxWait: 200 })
   window.addEventListener("scroll", setIsAtTop);
 })
 </script>
