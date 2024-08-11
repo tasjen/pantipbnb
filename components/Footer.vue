@@ -1,12 +1,12 @@
 <script setup lang="ts"></script>
 
 <template>
-  <footer
-    class="space-y-4 border-t bg-primary-foreground px-6 md:px-8 xl:px-20"
-  >
+  <footer class="space-y-4 border-t bg-primary-foreground">
     <div class="border-b py-4">
       <p class="text-center text-xl font-bold">เว็บในเครือ</p>
-      <div class="mx-auto grid max-w-[2400px] grid-cols-2">
+      <div
+        class="mx-auto grid max-w-[2400px] grid-cols-2  px-6 md:px-8 xl:px-20"
+      >
         <a href="https://www.bloggang.com/" target="_blank" class="m-auto">
           <img
             src="https://pantip.com/static/images/logo-bloggang.png"
@@ -40,7 +40,7 @@
     <div class="space-y-4 border-b pb-8">
       <p class="text-center text-xl font-bold">ดาวน์โหลดได้แล้ววันนี้</p>
       <div
-        class="mx-auto grid max-w-[2400px] grid-cols-3 items-center justify-center gap-8"
+        class="mx-auto grid max-w-[2400px] grid-cols-3 items-center justify-center gap-8  px-6 md:px-8 xl:px-20"
       >
         <a href="https://www.bloggang.com/" target="_blank" class="m-auto">
           <img
@@ -66,7 +66,9 @@
       </div>
     </div>
     <div class="border-b">
-      <div class="mx-auto flex max-w-[2400px] justify-between py-4">
+      <div
+        class="mx-auto flex max-w-[2400px] justify-between py-4  px-6 md:px-8 xl:px-20"
+      >
         <div class="flex flex-col">
           <a
             href="https://pantip.com/about/tos"
@@ -137,7 +139,7 @@
       </div>
     </div>
     <div>
-      <p class="mx-auto max-w-[2400px] text-start py-4">
+      <p class="mx-auto max-w-[2400px] text-start py-4  px-6 md:px-8 xl:px-20">
         © 2024 Internet Marketing co., ltd
       </p>
     </div>
