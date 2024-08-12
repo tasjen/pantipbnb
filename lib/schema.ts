@@ -16,8 +16,7 @@ export const Highlight = z.object({
 });
 export type Highlight = z.infer<typeof Highlight>;
 
-export const TopPost = z.object({
-  type: z.enum(["realtime", "pick", "hitz"]),
+export const Post = z.object({
   topic_id: z.number(),
   title: z.string(),
   created_time: z.string(),
@@ -29,10 +28,4 @@ export const TopPost = z.object({
     slug: z.string(),
   }),
 });
-export type TopPost = z.infer<typeof TopPost>;
-
-export type DataState = {
-  rooms: Room[];
-  highlights: Highlight[];
-  topPosts: TopPost[];
-};
+export type Post = z.infer<typeof Post>;

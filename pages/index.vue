@@ -1,26 +1,24 @@
 <script setup lang="ts">
-import { useDebounceFn } from '@vueuse/core';
+import PostContainer from '~/components/PostContainer.vue';
+import { getPantipHighlights, getPantipPick, getPantipRealtime, getPantipHitz } from '~/lib/data';
 
-const store = useStore();
-await callOnce(store.fetchHomePageData);
-onMounted(() => {
-  const setIsAtTop = useDebounceFn(() => {
-    store.isAtTop = window.scrollY === 0;
-  }, 100, { maxWait: 200 })
-  window.addEventListener("scroll", setIsAtTop);
-})
+const { data: homepageData, status } = useLazyAsyncData(
+  () =>
+    Promise.all([
+      getPantipHighlights(),
+      getPantipRealtime(),
+      getPantipPick(),
+      getPantipHitz(),
+    ]).then(([highlights, realtimes, picks, hitzs]) => ({ highlights, realtimes, picks, hitzs }))
+)
 </script>
 
 <template>
-  <div class="mx-auto">
-    <Header />
-    <main class="mx-auto max-w-[2400px] px-6 md:px-8 xl:px-20">
-      <Highlights />
-      <TopPosts type="realtime" />
-      <TopPosts type="pick" />
-      <TopPosts type="hitz" />
-    </main>
-    <Footer />
-    <StickyFooter />
-  </div>
+  <template v-if="status === 'pending'"> Loading..... </template>
+  <template v-else-if="homepageData">
+    <Highlights :highlights="homepageData.highlights" />
+    <PostContainer title="Pantip Realtime" :posts="homepageData.realtimes" />
+    <PostContainer title="Pantip Pick" :posts="homepageData.picks" />
+    <PostContainer title="Pantip Hitz" :posts="homepageData.hitzs" />
+  </template>
 </template>

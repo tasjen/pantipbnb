@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { TopPost } from '~/lib/schema';
+import type { Post } from '~/lib/schema';
 import { MessageSquareText, SquarePlus } from "lucide-vue-next";
 import { formatPostDate } from '~/lib/utils';
 type Props = {
-  post: TopPost;
+  post: Post;
 };
 const { post } = defineProps<Props>();
 
@@ -52,10 +52,7 @@ onUnmounted(() => window.addEventListener('resize', setIsTitleTruncated))
           <p
             ref="titleRef"
             class="truncate font-bold align-bottom"
-            :class="{
-            'group-hover:inline-block': isTitleTruncated,
-            'group-hover:animate-text-loop': isTitleTruncated
-          }"
+            :class="isTitleTruncated && 'group-hover:inline-block group-hover:animate-text-loop'"
           >
             {{ post.title }}
           </p>

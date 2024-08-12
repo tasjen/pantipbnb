@@ -9,11 +9,9 @@ useHead({
 </script>
 
 <template>
-  <div
-    class="min-h-screen bg-background text-primary antialiased animate-fade-in"
-  >
+  <NuxtLayout>
     <NuxtPage />
-  </div>
+  </NuxtLayout>
 </template>
 
 <style>

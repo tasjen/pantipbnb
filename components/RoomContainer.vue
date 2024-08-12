@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ChevronLeft, ChevronRight } from "lucide-vue-next";
+import { getRecommendedRooms } from "~/lib/data";
 
-const store = useStore();
+const { data: rooms, status } = useLazyAsyncData(getRecommendedRooms)
 const containerRef = ref<HTMLUListElement>();
-
 const isLeft = ref(true);
 const isRight = ref(false);
 
@@ -14,10 +14,7 @@ function handleScrollLeft() {
     left: -container.clientWidth / 1.5,
     behavior: 'smooth',
   });
-  setTimeout(() => {
-    isLeft.value = container.scrollLeft <= 20
-    isRight.value = Math.abs(container.clientWidth - (container.scrollWidth - container.scrollLeft)) <= 20
-  }, 550);
+  updatePosition()
 };
 
 function handleScrollRight() {
@@ -27,11 +24,17 @@ function handleScrollRight() {
     left: container.clientWidth / 1.5,
     behavior: "smooth",
   });
+  updatePosition()
+};
+
+function updatePosition() {
   setTimeout(() => {
+    const container = containerRef.value;
+    if (!container) return;
     isLeft.value = container.scrollLeft <= 20
     isRight.value = Math.abs(container.clientWidth - (container.scrollWidth - container.scrollLeft)) <= 20
   }, 550);
-};
+}
 </script>
 
 <template>
@@ -49,20 +52,12 @@ function handleScrollRight() {
       ref="containerRef"
       class="no-scroll flex gap-12 overflow-x-auto px-4 md:px-0"
     >
-      <li
-        v-for="room in store.rooms"
-        :key="room.id"
-        class="box-border shrink-0 grow-0 border-background opacity-70 transition-colors hover:border-border md:hover:border-[#cccccc] hover:opacity-90 md:border-b-2 pb-2"
-      >
-        <a :href="room.link_url" target="_blank">
-          <img
-            :src="room.room_icon_url"
-            :alt="room.name"
-            class="mx-auto size-8 invert md:size-12"
-          />
-          <p class="text-center text-xs font-semibold">{{ room.name }}</p>
-        </a>
-      </li>
+      <RoomItemSkeleton
+        v-if="status === 'pending'"
+        v-for="(_,index) in [...Array(30)]"
+        :key="index"
+      />
+      <RoomItem v-else v-for="room in rooms" :room="room" :key="room.id" />
     </ul>
     <button
       v-if="!isRight"

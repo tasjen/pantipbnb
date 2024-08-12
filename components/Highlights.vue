@@ -1,5 +1,10 @@
 <script setup lang="ts">
-const store = useStore();
+import type { Highlight } from '~/lib/schema';
+
+type Props = {
+  highlights: Highlight[];
+};
+const { highlights } = defineProps<Props>();
 </script>
 
 <template>
@@ -8,7 +13,7 @@ const store = useStore();
     <ul
       class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 min-[1920px]:grid-cols-6"
     >
-      <li v-for="e in store.highlights" :key="e.id">
+      <li v-for="e in highlights" :key="e.id">
         <a :href="e.post_url" target="_blank">
           <img
             :src="e.image_url[0] ?? ''"
