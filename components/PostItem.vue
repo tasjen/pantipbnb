@@ -25,7 +25,7 @@ onUnmounted(() => window.addEventListener('resize', setIsTitleTruncated))
 
 <template>
   <li class="text-sm">
-    <a
+    <NuxtLink
       class="group"
       :href="`https://pantip.com/topic/${post.topic_id}`"
       target="_blank"
@@ -62,14 +62,14 @@ onUnmounted(() => window.addEventListener('resize', setIsTitleTruncated))
           <span>{{ post.comments_count }}</span>
         </div>
       </div>
-    </a>
+    </NuxtLink>
     <div class="flex justify-between items-end">
-      <a
+      <NuxtLink
         class="text-muted-foreground hover:underline"
         :href="`https://pantip.com${post.author.slug}`"
       >
         {{ post.author.name }}
-      </a>
+      </NuxtLink>
       <div>
         <SquarePlus class="mr-1 mb-1 inline size-4" />
         <span>{{ post.votes_count }}</span>

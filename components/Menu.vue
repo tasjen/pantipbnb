@@ -14,35 +14,39 @@ import { Menu as MenuIcon, UserRound as UserIcon } from "lucide-vue-next";
     </DropdownMenuTrigger>
     <DropdownMenuContent class="mr-4">
       <DropdownMenuItem class="font-medium">
-        <a href="https://pantip.com/login">เข้าสู่ระบบ / สมัครสมาชิก</a>
+        <NuxtLink to="https://pantip.com/login"
+          >เข้าสู่ระบบ / สมัครสมาชิก</NuxtLink
+        >
       </DropdownMenuItem>
       <DropdownMenuItem class="font-medium">
-        <a href="https://pantip.com/forum/new_topic">ตั้งกระทู้</a>
+        <NuxtLink to="https://pantip.com/forum/new_topic">ตั้งกระทู้</NuxtLink>
       </DropdownMenuItem>
       <DropdownMenuSeparator />
       <DropdownMenuItem>
-        <a href="https://pantip.com">หน้าแรก</a>
+        <NuxtLink to="https://pantip.com">หน้าแรก</NuxtLink>
       </DropdownMenuItem>
       <DropdownMenuItem>
-        <a href="https://pantip.com/home/feed">My Feed</a>
+        <NuxtLink to="https://pantip.com/home/feed">My Feed</NuxtLink>
       </DropdownMenuItem>
       <DropdownMenuItem>
-        <a href="https://pantip.com/home/pick">Pantip Pick</a>
+        <NuxtLink to="https://pantip.com/home/pick">Pantip Pick</NuxtLink>
       </DropdownMenuItem>
       <DropdownMenuItem>
-        <a href="https://pantip.com/home/hitz">Pantip Hitz</a>
+        <NuxtLink to="https://pantip.com/home/hitz">Pantip Hitz</NuxtLink>
       </DropdownMenuItem>
       <DropdownMenuItem>
-        <a href="https://pantip.com/home/communities">Explore</a>
+        <NuxtLink to="https://pantip.com/home/communities">Explore</NuxtLink>
       </DropdownMenuItem>
       <DropdownMenuSeparator />
       <DropdownMenuItem>
-        <a href="https://pantip.com/point" target="_blank"> แลก พ้อย </a>
+        <NuxtLink to="https://pantip.com/point" target="_blank">
+          แลก พ้อย
+        </NuxtLink>
       </DropdownMenuItem>
       <DropdownMenuItem>
-        <a href="https://pantip.com/activities" target="_blank">
+        <NuxtLink to="https://pantip.com/activities" target="_blank">
           กิจกรรมพันทิป
-        </a>
+        </NuxtLink>
       </DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>

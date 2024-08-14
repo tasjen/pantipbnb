@@ -74,7 +74,7 @@ export async function getPantipHitz(): Promise<Post[]> {
   return posts;
 }
 
-export async function getRecommendedTopicByRoom(
+export async function getRecommendedTopicsByRoom(
   roomName: string
 ): Promise<Post[]> {
   const resBody = await $fetch<any>(
@@ -86,7 +86,7 @@ export async function getRecommendedTopicByRoom(
   return posts;
 }
 
-export async function getTrendingTopicByRoom(
+export async function getTrendingTopicsByRoom(
   roomName: string
 ): Promise<Post[]> {
   const resBody = await $fetch<any>(

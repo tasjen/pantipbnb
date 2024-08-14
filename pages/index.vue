@@ -2,7 +2,7 @@
 import PostContainer from '~/components/PostContainer.vue';
 import { getPantipHighlights, getPantipPick, getPantipRealtime, getPantipHitz } from '~/lib/data';
 
-const { data: homepageData, status } = useLazyAsyncData(
+const { data: homepageData, status } = useAsyncData(
   () =>
     Promise.all([
       getPantipHighlights(),
@@ -10,12 +10,16 @@ const { data: homepageData, status } = useLazyAsyncData(
       getPantipPick(),
       getPantipHitz(),
     ]).then(([highlights, realtimes, picks, hitzs]) => ({ highlights, realtimes, picks, hitzs }))
-)
+  , { lazy: true, server: false })
 </script>
 
 <template>
-  <template v-if="status === 'pending'"> Loading..... </template>
-  <template v-else-if="homepageData">
+  <template v-if="!homepageData">
+    <PostContainerSkeleton />
+    <PostContainerSkeleton />
+    <PostContainerSkeleton />
+  </template>
+  <template v-else>
     <Highlights :highlights="homepageData.highlights" />
     <PostContainer title="Pantip Realtime" :posts="homepageData.realtimes" />
     <PostContainer title="Pantip Pick" :posts="homepageData.picks" />

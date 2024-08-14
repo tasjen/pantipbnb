@@ -16,7 +16,7 @@ const roomNameEng = room.link_url.split('/').at(-1)
     ? 'border-primary hover:border-primary opacity-100'
     : 'border-transparent opacity-70 hover:border-border'"
   >
-    <NuxtLink :to="`/rooms/${roomNameEng}`">
+    <NuxtLink :to="`/rooms/${roomNameEng === 'forum' ? 'all' : roomNameEng}`">
       <img
         :src="room.room_icon_url"
         :alt="room.name"

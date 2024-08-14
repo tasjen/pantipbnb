@@ -2,7 +2,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-vue-next";
 import { getRecommendedRooms } from "~/lib/data";
 
-const { data: rooms, status } = useLazyAsyncData(getRecommendedRooms)
+const { data: rooms, status } = useAsyncData('rooms', getRecommendedRooms, { lazy: true, server: false })
 const containerRef = ref<HTMLUListElement>();
 const isLeft = ref(true);
 const isRight = ref(false);
@@ -53,8 +53,8 @@ function updatePosition() {
       class="no-scroll flex gap-12 overflow-x-auto px-4 md:px-0"
     >
       <RoomItemSkeleton
-        v-if="status === 'pending'"
-        v-for="(_,index) in [...Array(30)]"
+        v-if="!rooms?.length"
+        v-for="(_, index) in Array(30)"
         :key="index"
       />
       <RoomItem v-else v-for="room in rooms" :room="room" :key="room.id" />
