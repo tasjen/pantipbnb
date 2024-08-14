@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import PostContainer from '~/components/PostContainer.vue';
 import { getRecommendedTopicsByRoom, getTrendingTopicsByRoom } from '~/lib/data';
 const route = useRoute()
 const roomName = route.params.room as string

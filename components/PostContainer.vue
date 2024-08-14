@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { AsyncDataRequestStatus } from "#app";
 import type { Post } from "~/lib/schema";
 type Props = {
   title: string;

@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <footer class="space-y-4 border-t bg-primary-foreground">
     <div class="border-b py-4">

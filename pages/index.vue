@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import PostContainer from '~/components/PostContainer.vue';
 import { getPantipHighlights, getPantipPick, getPantipRealtime, getPantipHitz } from '~/lib/data';
 
 const { data: homepageData, status } = useAsyncData(
@@ -20,7 +19,7 @@ const { data: homepageData, status } = useAsyncData(
     <PostContainerSkeleton />
   </template>
   <template v-else>
-    <Highlights :highlights="homepageData.highlights" />
+    <HighlightContainer :highlights="homepageData.highlights" />
     <PostContainer title="Pantip Realtime" :posts="homepageData.realtimes" />
     <PostContainer title="Pantip Pick" :posts="homepageData.picks" />
     <PostContainer title="Pantip Hitz" :posts="homepageData.hitzs" />

@@ -7,16 +7,17 @@ type Props = {
 const { room } = defineProps<Props>();
 const route = useRoute()
 const roomNameEng = room.link_url.split('/').at(-1)
+const roomSlug = roomNameEng === 'forum' ? 'all' : roomNameEng
 </script>
 
 <template>
   <li
     class="shrink-0 grow-0 transition-colors hover:opacity-100 md:border-b-[3px] pb-2 active:scale-95"
-    :class="route.params.room === roomNameEng
+    :class="route.params.room === roomSlug
     ? 'border-primary hover:border-primary opacity-100'
     : 'border-transparent opacity-70 hover:border-border'"
   >
-    <NuxtLink :to="`/rooms/${roomNameEng === 'forum' ? 'all' : roomNameEng}`">
+    <NuxtLink :to="`/rooms/${roomSlug}`">
       <img
         :src="room.room_icon_url"
         :alt="room.name"

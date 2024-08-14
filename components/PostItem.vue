@@ -11,9 +11,8 @@ const titleRef = ref<HTMLParagraphElement>()
 
 const isTitleTruncated = ref(false)
 function setIsTitleTruncated() {
-  if (titleRef.value) {
-    isTitleTruncated.value = titleRef.value.offsetWidth < titleRef.value.scrollWidth
-  }
+  if (!titleRef.value) return;
+  isTitleTruncated.value = titleRef.value.offsetWidth < titleRef.value.scrollWidth
 }
 
 onMounted(() => {

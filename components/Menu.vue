@@ -40,7 +40,7 @@ import { Menu as MenuIcon, UserRound as UserIcon } from "lucide-vue-next";
       <DropdownMenuSeparator />
       <DropdownMenuItem>
         <NuxtLink to="https://pantip.com/point" target="_blank">
-          แลก พ้อย
+          แลกพอยต์
         </NuxtLink>
       </DropdownMenuItem>
       <DropdownMenuItem>
