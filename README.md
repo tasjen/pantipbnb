@@ -1,7 +1,6 @@
 # Pantipbnb
 
-<img src="images/preview-desktop.png" width="640" />
-<img src="images/preview-mobile.png" width="160" />
+![](images/preview.png)
 
 # Disclaimer
 
