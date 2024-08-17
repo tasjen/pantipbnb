@@ -1,75 +1,38 @@
-# Nuxt 3 Minimal Starter
+# Pantipbnb
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<img src="images/preview-desktop.png" width="640" />
+<img src="images/preview-mobile.png" width="160" />
 
-## Setup
+# Disclaimer
 
-Make sure to install the dependencies:
+This project is an educational exercise to improve my frontend development skills. It is not intended for commercial use or public deployment due to potential copyright issues related to the original websites' design, branding, and content. To avoid any legal risks, I decided to cancel the public deployment of this project.
 
-```bash
-# npm
+# Try it locally
+
+You can easily try out the application by following these steps:
+
+1\. Clone this repo
+
+```
+git clone https://github.com/tasjen/pantipbnb.git
+```
+
+2\. Install dependencies
+
+```
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+3\. Start a development server
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+```
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+&nbsp;&nbsp;&nbsp;&nbsp;or start a production server
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```
+npm run build && npm run preview
 ```
 
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+4\. Visit http://localhost:3000
