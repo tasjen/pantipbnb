@@ -20,7 +20,7 @@ const handleSubmit = (event: Event) => {
     "
     @submit="handleSubmit"
   >
-    <Search class="absolute w-12 pl-4 md:hidden" />
+    <Search class="absolute w-12 pl-4 md:hidden z-50" />
     <Input
       v-model="searchTerms"
       class="h-14 rounded-full pl-14 shadow-md md:pl-8 md:text-xl relative"

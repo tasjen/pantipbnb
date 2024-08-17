@@ -12,7 +12,7 @@ const roomSlug = roomNameEng === 'forum' ? 'all' : roomNameEng
 
 <template>
   <li
-    class="shrink-0 grow-0 transition-colors hover:opacity-100 md:border-b-[3px] pb-2 active:scale-95"
+    class="shrink-0 grow-0 transition-colors hover:opacity-100 border-b-[3px] pb-2 active:scale-95"
     :class="route.params.room === roomSlug
     ? 'border-primary hover:border-primary opacity-100'
     : 'border-transparent opacity-70 hover:border-border'"

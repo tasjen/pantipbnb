@@ -11,10 +11,10 @@ onMounted(() => {
 
 <template>
   <div
-    class="sticky top-0 bg-background pt-4 z-50 shadow-md [&>*]:pb-4"
+    class="sticky top-0 bg-background pt-4 z-50 shadow-md [&>*:not(:last-child)]:pb-4"
     :class="store.isAtTop && 'md:shadow-none'"
   >
-    <div class="mx-auto max-w-[2400px] px-6 md:px-8 xl:px-20">
+    <div class="mx-auto max-w-[2400px] px-6 md:px-8 xl:px-20 hidden md:block">
       <div class="hidden md:flex justify-between">
         <NuxtLink to="/">
           <img src="/pantip-logo.png" alt="pantip-logo" width="80" />
