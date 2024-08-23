@@ -97,6 +97,22 @@ export async function getTrendingTopicsByRoom(
   return posts;
 }
 
+export async function getLatestTopicsByRoom(
+  roomName: string,
+  limit: number,
+  nextId?: number
+): Promise<{ posts: Post[]; newNextId: number }> {
+  const resBody = await $fetch<any>(
+    `https://pantip.com/api/forum-service/forum/room_topic?room=${roomName}&limit=${limit}${
+      nextId ? `&next_id=${nextId}` : ""
+    }`,
+    { headers: pantipApiHeader }
+  );
+  const posts = z.array(Post).parse(resBody?.data);
+  const newNextId = z.number().parse(resBody?.next_id);
+  return { posts, newNextId };
+}
+
 /* native 'fetch' version
 export async function getRecommendedRooms(): Promise<Room[]> {
   const res = await fetch(
