@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getLatestTopicsByRoom, getRecommendedTopicsByRoom, getTrendingTopicsByRoom } from '~/lib/data';
-import { useElementVisibility } from '@vueuse/core'
+import { useElementVisibility, watchDebounced } from '@vueuse/core'
 import { LoaderCircle } from 'lucide-vue-next';
 const route = useRoute()
 const roomName = route.params.room as string
@@ -23,15 +23,13 @@ const { data: topics, status } = useAsyncData(`room:${roomName}`,
   , { lazy: true, server: false })
 
 async function loadMoreLatestTopics() {
+  if (!infiniteFetchingRef.value || !infiniteFetchingVisible.value) return;
   const {posts, newNextId} = await getLatestTopicsByRoom(roomName, 10, nextId.value)
   topics.value?.latest?.push(...posts)
   nextId.value = newNextId
+  if (infiniteFetchingVisible.value) await loadMoreLatestTopics();
 }
-watch(infiniteFetchingVisible, async () => {
-  if (infiniteFetchingRef.value && infiniteFetchingVisible.value) {
-    await loadMoreLatestTopics()
-  }
-})
+watchDebounced(infiniteFetchingVisible, loadMoreLatestTopics, { debounce: 500, maxWait: 1000 })
 </script>
 
 <template>
