@@ -4,7 +4,7 @@
 
 # Disclaimer
 
-This project is an educational exercise to improve my frontend development skills. It is not intended for commercial use or public deployment due to potential copyright issues related to the original websites' design, branding, and content. To avoid any legal risks, I decided to cancel the public deployment of this project.
+This project is an educational exercise to improve my frontend development skills. It is not intended for commercial use or public deployment due to potential copyright issues related to the original websites' design, branding, and content. **To avoid any legal risks, I decided to cancel the public deployment of this project.**
 
 # Try it locally
 
